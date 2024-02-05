@@ -4,7 +4,7 @@ function tickets(data, criterion) {
     class Ticket {
         constructor(destination, price, status) {
             this.destination = destination;
-            this.price = price;
+            this.price = Number(price);
             this.status = status;
         }
     }
