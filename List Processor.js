@@ -1,31 +1,44 @@
-function listProcessor(data) {
+function listProcessor(input) {
     let result = [];
 
-    for (const el of data) {
+    let obj = {
+        addFn: function (currentWord) {
+            return result.push(currentWord);
+        },
+        removefn: function (currentWord) {
+            for (let i = 0; i < result.length; i++) {
+                if (result[i] === currentWord) {
+                    result.splice(i, 1);
+                    i--;
+                }
+            }
+            return result;
+        }
+    };
+
+    for (let el of input) {
         let [command, word] = el.split(' ');
 
-        if (command === "print") {
-            break;
+        if (command === 'print') {
+            console.log(result.join(','));
         }
         else if (command === 'add') {
-            addFn(word);
+            obj.addFn(word);
         }
         else if (command === 'remove') {
-            removeFn(word);
+            obj.removefn(word);
         }
-    }
 
-    function addFn(inputWord) {
-        return result.push(inputWord);
     }
-
-    function removeFn(inputWord) {
-        let currentIndex = result.lastIndexOf(inputWord);
-        return result.splice(currentIndex, 1);
-    }
-
-    console.log(result.join(','));
 }
+
+listProcessor(
+    [
+        'add hello', 'add hello', 'add again', 'print', 'remove hello', 'add again'
+    ]
+)
+
+console.log('--------');
 
 listProcessor(
     [
