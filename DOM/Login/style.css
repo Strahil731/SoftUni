@@ -1,0 +1,39 @@
+.loginForm {
+    margin: auto;
+    width: 20%;
+    padding: 10px;
+    border: 3px solid black;
+}
+
+.loginForm h1 {
+    text-align: center;
+    font-size: 3rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.loginForm .container {
+    margin: auto;
+    width: 60%;
+    display: grid;
+}
+
+.loginForm .container input {
+    margin: 10px;
+    padding: 13px;
+    border-radius: 10%;
+    border: 1px solid black;
+}
+
+.loginForm .container button {
+    width: 90%;
+    margin: auto;
+    border-radius: 43%;
+    padding: 14px;
+    background-color: greenyellow;
+    color: black;
+}
+
+.loginForm .container button:hover {
+    background-color: blueviolet;
+    color: white;
+}
