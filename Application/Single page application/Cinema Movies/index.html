@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <link rel="stylesheet" href="./src/style.css" />
+    <script type="module" src="./src/app.js"></script>
+</head>
+
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/login.html">Login</a>
+    </nav>
+    <div id="loading">
+        <span>Loading &hellip;</span>
+    </div>
+    <section id="home-page">
+        <h1>Welcome to Cinemax!!</h1>
+        <p>Here you can find information about popular titles.</p>
+        <ul id="list"></ul>
+    </section>
+
+    <section id="login-page">
+        <h1>Log in to Movies</h1>
+        <form id="login-form">
+            <label>
+                Email:
+                <input type="text" name="email" />
+            </label>
+            <label>
+                Password:
+                <input type="password" name="password" />
+            </label>
+            <input type="submit" value="LogIn" />
+        </form>
+    </section>
+</body>
+
+</html>
