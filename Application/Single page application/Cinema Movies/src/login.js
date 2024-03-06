@@ -1,6 +1,11 @@
-export function showLoginView() {
-    
+import { request } from "./request.js";
+
+export function showLohinPage() {
+    document.querySelectorAll("section").forEach(s => s.style.display = "none");
+    document.getElementById("login-page").style.display = "block";
 }
+
+start();
 
 function start() {
     const form = document.getElementById("login-form");
@@ -11,7 +16,7 @@ async function onLogin(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData.entries());
+    const data = Object.entries(formData.entries());
 
     const email = data.email.trim();
     const password = data.password.trim();
@@ -22,7 +27,7 @@ async function onLogin(event) {
         const response = await fetch(URL, {
             method: "POST",
             headers: {
-                "Content-Type": "application.json"
+                "content-Type": "application/json"
             },
             body: JSON.stringify({ email, password })
         });
