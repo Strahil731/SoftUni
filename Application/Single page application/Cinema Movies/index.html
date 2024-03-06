@@ -13,6 +13,7 @@
     <nav>
         <a id="home-link" href="/">Home</a>
         <a id="login-link" href="/login.html">Login</a>
+        <a id="create-link" href="/create.html">Create</a>
     </nav>
     <div id="loading">
         <span>Loading &hellip;</span>
@@ -42,6 +43,25 @@
         <h1>Movie Title</h1>
         <img src="" />
         <p>Movie description</p>
+    </section>
+
+    <section id="create-page">
+        <h1>Create Movie</h1>
+        <form id="create-form">
+            <label>
+                Title:
+                <input type="text" name="title" />
+            </label>
+            <label>
+                Image URL:
+                <input type="text" name="img" />
+            </label>
+            <label>
+                Description:
+                <input type="text" name="description" />
+            </label>
+            <input type="submit" value="Public" />
+        </form>
     </section>
 </body>
 
