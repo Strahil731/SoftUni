@@ -1,19 +1,24 @@
-section{
+section {
     display: none;
 }
 
-nav{
+nav {
     background-color: #000;
     padding: 8px 16px;
 }
 
-nav a{
+nav a {
     color: #fff;
     text-decoration: none;
     margin: 8px 16px;
     padding: 8px 16px;
 }
 
-nav a:hover{
+nav a:hover {
     background-color: #333;
+}
+
+img {
+    height: 600px;
+    width: auto;
 }
