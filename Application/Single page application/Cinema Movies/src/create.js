@@ -1,3 +1,5 @@
+import { showDetailsView } from "./details.js";
+import { showView } from "./nav.js";
 import { request } from "./request.js";
 
 start();
@@ -17,16 +19,23 @@ async function onPublic(event) {
     const description = data.description.trim();
 
     const URL = "http://localhost:3030/data/movies";
+    const userData = JSON.parse(localStorage.getItem("user"));
+
+    if (!userData) {
+        alert("You must be logged in to public movies!");
+        return;
+    }
     try {
         const movie = request(URL, {
             methods: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "X-Authorization": userData.accessToken
             },
             body: JSON.stringify({ title, img, description })
         });
 
-        show
+        showView("details-view", showDetailsView, undefined, movie._id);
     } catch (error) {
         // Do nothing
         // TODO show validation errors

@@ -18,8 +18,8 @@ async function onLogin(event) {
     const formData = new FormData(event.target);
     const data = Object.entries(formData.entries());
 
-    const email = data.email.trim();
-    const password = data.password.trim();
+    const email = data.email;
+    const password = data.password;
 
     const URL = "http://localhost:3030/users/login";
 
