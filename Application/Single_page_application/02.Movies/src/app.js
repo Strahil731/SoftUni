@@ -12,13 +12,16 @@ const userNav = document.querySelectorAll("li.user");
 const guestNav = document.querySelectorAll("li.guest");
 
 const routes = {
+    "/": showHome,
     "/home": showHome,
     "/register": showRegisterView,
     "/login": showLogin,
-    "/logout": showLogout
+    "/logout": showLogout,
+    "/addMovie": () => console.log("add"),
+    "/details/:id": () => console.log("add")
 };
 
-function onNavigate(event) {
+export function onNavigate(event) {
 
     if (event.target.tagName !== "A" || !event.target.href) {
         return;
@@ -47,3 +50,4 @@ export function updateNav() {
 }
 
 updateNav();
+showHome();
