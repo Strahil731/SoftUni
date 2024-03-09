@@ -1,43 +1,23 @@
 import { showDetailsView } from "./details.js";
 import { showView } from "./nav.js";
-import { request } from "./request.js";
+import { post } from "./request.js";
+import { createSubmitHandler, getUserData } from "./util.js";
 
 start();
 
 function start() {
-    document.getElementById("create-form").addEventListener("submit", onPublic);
+    document.getElementById("create-form").addEventListener("submit",createSubmitHandler(onPublic));
 }
 
-async function onPublic(event) {
-    event.preventDefault();
-
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData.entries());
-
-    const title = data.title.trim();
-    const img = data.img.trim();
-    const description = data.description.trim();
-
+async function onPublic({title, img, description}) {
     const URL = "http://localhost:3030/data/movies";
-    const userData = JSON.parse(localStorage.getItem("user"));
+    const userData = getUserData();
 
     if (!userData) {
         alert("You must be logged in to public movies!");
         return;
     }
-    try {
-        const movie = request(URL, {
-            methods: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "X-Authorization": userData.accessToken
-            },
-            body: JSON.stringify({ title, img, description })
-        });
+    const movie = post(URL, { title, img, description });
 
-        showView("details-view", showDetailsView, undefined, movie._id);
-    } catch (error) {
-        // Do nothing
-        // TODO show validation errors
-    }
+    showView("details-view", showDetailsView, undefined, movie._id);
 }

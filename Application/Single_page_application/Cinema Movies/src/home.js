@@ -1,6 +1,6 @@
 import { showDetailsView } from "./details.js";
 import { showView } from "./nav.js";
-import { request } from "./request.js";
+import { get } from "./request.js";
 
 export function showHomePage() {
     document.querySelectorAll("section").forEach(s => s.style.display = "none");
@@ -18,7 +18,7 @@ async function start() {
 async function getMovies() {
     const URL = "http://localhost:3030/data/movies?select=_id%2Ctitle%2Cimg";
 
-    return request(URL);
+    return get(URL);
 }
 
 function createMoviesPrevies(movie) {

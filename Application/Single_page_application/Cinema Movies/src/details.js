@@ -1,4 +1,4 @@
-import { request } from "./request.js";
+import { get } from "./request.js";
 
 export async function showDetailsView(movieId) {
     displayDetails({
@@ -13,7 +13,7 @@ export async function showDetailsView(movieId) {
 async function getMovieById(id) {
     const URL = `http://localhost:3030/data/movies/${id}`;
 
-    return request(URL);
+    return get(URL);
 }
 
 function displayDetails(movie) {

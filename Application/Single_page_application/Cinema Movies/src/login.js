@@ -1,4 +1,5 @@
-import { request } from "./request.js";
+import { post } from "./request.js";
+import { createSubmitHandler, saveUserData } from "./util.js";
 
 export function showLohinPage() {
     document.querySelectorAll("section").forEach(s => s.style.display = "none");
@@ -9,39 +10,14 @@ start();
 
 function start() {
     const form = document.getElementById("login-form");
-    form.addEventListener("submit", onLogin);
+    form.addEventListener("submit", createSubmitHandler(onLogin));
 }
 
-async function onLogin(event) {
-    event.preventDefault();
-
-    const formData = new FormData(event.target);
-    const data = Object.entries(formData.entries());
-
-    const email = data.email;
-    const password = data.password;
-
+async function onLogin({email, password}) {
     const URL = "http://localhost:3030/users/login";
 
-    try {
-        const response = await fetch(URL, {
-            method: "POST",
-            headers: {
-                "content-Type": "application/json"
-            },
-            body: JSON.stringify({ email, password })
-        });
+    const userData = await post(URL, { email, password });
+    saveUserData(userData);
 
-        if (!response.ok) {
-            const error = await response.json();
-            throw new Error(error.message);
-        }
-
-        const userData = await response.json();
-        localStorage.setItem("user", JSON.stringify(userData));
-
-        window.location = '/';
-    } catch (error) {
-        alert(error.message);
-    }
+    window.location = "/";
 }
