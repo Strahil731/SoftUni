@@ -3,6 +3,10 @@ import { render } from "../node_modules/lit-html/lit-html.js";
 import { showDashboardView } from "./views/dashboardView.js";
 import { showRegisterView } from "./views/registerView.js";
 import { userHelper } from "./utility/userHelper.js";
+import { showLoginView } from "./views/loginView.js";
+import { showLogoutView } from "./views/logoutView.js";
+import { showDetailsView } from "./views/detailsView.js";
+import { showCreateView } from "./views/createView.js";
 
 const root = document.querySelector("div[data-id='root']");
 const userNav = document.getElementById("user");
@@ -10,13 +14,13 @@ const guestNav = document.getElementById("guest");
 
 page("/", updateCTX, showDashboardView);
 page("/dashboard", updateCTX, showDashboardView);
-page("/create", () => console.error("create"));
-page("/details/:id", () => console.error("details"));
+page("/create", updateCTX, showCreateView);
+page("/details/:id", updateCTX, showDetailsView);
 page("/edit/:id", () => console.error("edit"));
 page("/myFurniture", () => console.error("myFurniture"));
-page("/login", () => console.error("login"));
+page("/login", updateCTX, showLoginView);
 page("/register", updateCTX, showRegisterView);
-page("/logout", () => console.error("logout"));
+page("/logout", updateCTX, showLogoutView);
 
 page.start();
 updateNav();

@@ -31,7 +31,8 @@ async function requester(method, url, data) {
 
         return await response.json();
     } catch (error) {
-        return alert(error.message);
+        alert(error.message);
+        throw new Error(error.message);
     }
 }
 
