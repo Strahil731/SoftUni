@@ -7,6 +7,9 @@ import { showLoginView } from "./views/loginView.js";
 import { showLogoutView } from "./views/logoutView.js";
 import { showDetailsView } from "./views/detailsView.js";
 import { showCreateView } from "./views/createView.js";
+import { showMyFurnitureView } from "./views/myFurnitureView.js";
+import { deleteItem } from "./views/deleteView.js";
+import { showEditView } from "./views/editView.js";
 
 const root = document.querySelector("div[data-id='root']");
 const userNav = document.getElementById("user");
@@ -16,8 +19,9 @@ page("/", updateCTX, showDashboardView);
 page("/dashboard", updateCTX, showDashboardView);
 page("/create", updateCTX, showCreateView);
 page("/details/:id", updateCTX, showDetailsView);
-page("/edit/:id", () => console.error("edit"));
-page("/myFurniture", () => console.error("myFurniture"));
+page("/edit/:id", updateCTX, showEditView);
+page("/delete/:id", updateCTX, deleteItem)
+page("/myFurniture", updateCTX, showMyFurnitureView);
 page("/login", updateCTX, showLoginView);
 page("/register", updateCTX, showRegisterView);
 page("/logout", updateCTX, showLogoutView);
