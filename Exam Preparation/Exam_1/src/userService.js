@@ -1,4 +1,4 @@
-import { post } from "./requester.js";
+import { post, get } from "./requester.js";
 
 const links = {
     login: "http://localhost:3030/users/login",

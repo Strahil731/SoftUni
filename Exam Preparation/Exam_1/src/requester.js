@@ -28,8 +28,7 @@ async function requester(method, url, data) {
             throw new Error(error.message);
         }
 
-        const responseData = await response.json();
-        return responseData;
+        return await response.json();
     } catch (error) {
         alert(error.message);
     }
