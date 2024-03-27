@@ -1,11 +1,14 @@
 import { hasUser } from "./utils/userUtils.js";
+import { showCreate } from "./views/createView.js";
+import { showDetails } from "./views/detailsView.js";
+import { showEdit } from "./views/editView.js";
+import { showDashboard } from "./views/eventView.js";
 import { showHome } from "./views/homeView.js";
 import { showLogin } from "./views/loginView.js";
 import { showLogout } from "./views/logoutView.js";
+import { showRegister } from "./views/registerView.js";
 
 document.querySelectorAll("section").forEach(section => section.remove());
-document.querySelector("h2").style.display = "none";
-document.querySelector("h4").style.display = "none";
 
 const main = document.querySelector("main");
 const nav = document.querySelector("nav");
@@ -14,9 +17,14 @@ nav.addEventListener("click", onNavigation);
 updateNav();
 
 const routes = {
-    "/": showHome,
+    "/home": showHome,
     "/login": showLogin,
     "/logout": showLogout,
+    "/register": showRegister,
+    "/addEvent": showCreate,
+    "/event": showDashboard,
+    "/details": showDetails,
+    "/edit": showEdit,
     "*": () => console.error("404 Page not found!")
 }
 
@@ -71,3 +79,5 @@ function goTo(name, ...params) {
 
     handler(context, params);
 }
+
+showHome(context);
