@@ -7,5 +7,5 @@ export async function showLogout() {
     await logout();
     removeUser();
     updateNav();
-    showHome();
+    ctx.goTo("/home");
 }

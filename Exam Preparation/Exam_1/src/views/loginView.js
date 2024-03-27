@@ -25,6 +25,6 @@ async function onLogin(event) {
     const userData = await login({ email, password });
     setUser(userData);
     ctx.updateNav();
-    ctx.goTo("/");
+    ctx.goTo("/home");
     loginForm.reset();
 }
