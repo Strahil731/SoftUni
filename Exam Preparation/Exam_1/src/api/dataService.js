@@ -1,4 +1,4 @@
-import { del, get, post } from "./requester.js"
+import { del, get, post, update } from "./requester.js"
 
 const dataURL = {
     getAllIdea: "data/events?sortBy=_createdOn%20desc",
@@ -13,6 +13,10 @@ async function getIdea(id) {
     return await get(dataURL.singleIdea + `/${id}`);
 }
 
+async function updateIdea(id, data) {
+    return await update(dataURL.singleIdea + `/${id}`, data);
+}
+
 async function createIdea(data) {
     return await post(dataURL.singleIdea, data);
 }
@@ -21,4 +25,4 @@ async function removeIdea(id) {
     return await del(dataURL.singleIdea + `/${id}`);
 }
 
-export { getAllIdeas, getIdea, createIdea, removeIdea }
+export { getAllIdeas, getIdea, updateIdea, createIdea, removeIdea }

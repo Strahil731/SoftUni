@@ -1,5 +1,8 @@
 import { getAllIdeas } from "../api/dataService.js";
 
+const main = document.querySelector("main");
+const h2 = document.querySelector("h2");
+
 const dashboardSection = document.getElementById("dashboard");
 let ctx = null;
 

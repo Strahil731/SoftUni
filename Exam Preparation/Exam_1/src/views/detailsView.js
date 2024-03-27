@@ -17,6 +17,15 @@ export async function showDetails(context, data) {
 
   const deleteBtn = document.getElementById("delete-btn");
   deleteBtn.addEventListener("click", onDelete);
+
+  const editBtn = document.getElementById("edit-btn");
+  editBtn.addEventListener("click", onEdit);
+}
+
+function onEdit(event) {
+  event.preventDefault();
+  const data = event.target.dataset.id;
+  ctx.goTo("/edit", data);
 }
 
 async function onDelete(event) {
@@ -28,6 +37,7 @@ async function onDelete(event) {
 }
 
 function createIdeaTemp(data, isOwner) {
+
   return `
   <div id="details-wrapper">
             <img id="details-img" src="${data.imageUrl}" alt="example1" />
@@ -45,7 +55,7 @@ function createIdeaTemp(data, isOwner) {
             <h3>Going: <span id="go">0</span> times.</h3>
             <div id="action-buttons">
               ${isOwner ? `<a href="" id="edit-btn" data-id=${data._id}>Edit</a>
-              <a href="" id="delete-btn" data-id=${data._id}>Delete</a>` : ""}
+              <a href="" id="delete-btn" data-id=${data._id}>Delete</a>` : `<a href="" id="go-btn">Going</a>`}
             </div>
           </div>`;
 }         
