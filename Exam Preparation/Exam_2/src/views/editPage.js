@@ -25,7 +25,7 @@ export async function showEdit(context, data) {
 
         const item = { model, imageUrl, year, mileage, contact, about };
         await updateMotor(id, item);
-        ctx.goto(`/details/${id}`);
+        ctx.goTo("/details", id)
     });
 }
 

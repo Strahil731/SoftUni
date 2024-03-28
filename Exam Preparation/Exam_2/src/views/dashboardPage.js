@@ -3,13 +3,15 @@ import { getAllMotors } from "../services/dataService.js";
 const main = document.querySelector("main");
 const noValible = document.querySelector(".no-valible");
 const dashboardSection = document.getElementById("dashboard");
+const h2 = document.createElement("h2");
+h2.innerHTML = "Available Motorcycles";
 
 let ctx = null;
 
 export async function showDashboard(context) {
     ctx = context;
     dashboardSection.innerHTML = "";
-    ctx.render(dashboardSection);
+    ctx.render(h2, dashboardSection);
 
     const motorData = await getAllMotors();
 

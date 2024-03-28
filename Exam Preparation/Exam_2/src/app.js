@@ -7,6 +7,7 @@ import { showHome } from "./views/homePage.js";
 import { showLogin } from "./views/loginPage.js";
 import { showLogout } from "./views/logoutPage.js";
 import { showRegister } from "./views/registerPage.js";
+import { showSearch } from "./views/searchPage.js";
 
 document.querySelectorAll("section").forEach(section => section.remove());
 document.querySelectorAll("h2").forEach(h2 => h2.style.display = "none");
@@ -44,8 +45,8 @@ export function updateNav() {
     }
 }
 
-function render(view) {
-    main.replaceChildren(view);
+function render(firstView, secondView) {
+    main.replaceChildren(firstView, secondView);
 }
 
 function onNavigate(event) {

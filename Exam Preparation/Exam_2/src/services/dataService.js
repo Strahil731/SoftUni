@@ -3,7 +3,6 @@ import { del, get, post, update } from "./requester.js"
 const motorUrl = {
     allMotors: "/data/motorcycles?sortBy=_createdOn%20desc",
     singleMotor: "/data/motorcycles",
-    deleteOrUpdateMotor: "/data/motorcycles/"
 }
 
 async function getAllMotors() {
@@ -15,7 +14,7 @@ async function getSingleMotor(id) {
 }
 
 async function updateMotor(id, data) {
-    return await update(motorUrl.deleteOrUpdateMotor + `${id}`, data);
+    return await update(motorUrl.singleMotor + `/${id}`, data);
 }
 
 async function createMotor(data) {
@@ -23,7 +22,7 @@ async function createMotor(data) {
 }
 
 async function removeMotor(id) {
-    return await del(motorUrl.deleteOrUpdateMotor + `${id}`);
+    return await del(motorUrl.singleMotor + `/${id}`);
 }
 
 export { getAllMotors, getSingleMotor, updateMotor, createMotor, removeMotor }
