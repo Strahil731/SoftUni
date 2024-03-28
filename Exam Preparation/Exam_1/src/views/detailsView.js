@@ -1,5 +1,5 @@
 import { getIdea, removeIdea } from "../api/dataService.js";
-import { hasOwner } from "../utils/userUtils.js";
+import { getCounter, hasOwner } from "../utils/userUtils.js";
 
 const detailsSection = document.getElementById("details");
 let ctx = null;

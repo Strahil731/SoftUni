@@ -1,4 +1,5 @@
 import { getAllIdeas } from "../api/dataService.js";
+import { getCounter, setCounter } from "../utils/userUtils.js";
 
 const main = document.querySelector("main");
 const h2 = document.querySelector("h2");
@@ -12,6 +13,10 @@ export async function showDashboard(context) {
     ctx.render(dashboardSection);
 
     const data = await getAllIdeas();
+    
+    if (getCounter() === null) {
+        setCounter(data);
+    }
 
     if (!data) {
         dashboardSection.innerHTML = "<h4>No Events yet.</h4>";

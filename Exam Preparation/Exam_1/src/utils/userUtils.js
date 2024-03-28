@@ -18,4 +18,16 @@ function hasOwner(id) {
     return getUser()._id === id;
 }
 
-export { getUser, setUser, hasUser, removeUser, hasOwner }
+function setCounter(data) {
+    let counter = new Map();
+    for (let event of data) {
+        counter.set(event._id, 0);
+    }
+    sessionStorage.setItem("counter", counter);
+}
+
+function getCounter() {
+    return sessionStorage.getItem("counter");
+}
+
+export { getUser, setUser, hasUser, removeUser, hasOwner, setCounter, getCounter }
