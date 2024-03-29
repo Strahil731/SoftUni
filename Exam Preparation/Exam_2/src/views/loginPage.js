@@ -15,7 +15,7 @@ let ctx = null;
 
 export function showLogin(context) {
     ctx = context;
-    ctx.render(loginSection);
+    ctx.render(loginSection,  "");
 }
 
 async function onLogin(event) {

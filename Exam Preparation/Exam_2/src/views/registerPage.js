@@ -15,7 +15,7 @@ let ctx = null;
 
 export function showRegister(context) {
     ctx = context;
-    ctx.render(registerSection);
+    ctx.render(registerSection,  "");
 }
 
 async function onRegister(event) {

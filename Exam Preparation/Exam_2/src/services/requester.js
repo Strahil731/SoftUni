@@ -31,6 +31,10 @@ async function reqester(method, endUrl, data) {
             throw new Error(error.message);
         }
 
+        if (response.status === 204) {
+            return response;
+        }
+
         return await response.json();
     } catch (error) {
         return alert(error.message);

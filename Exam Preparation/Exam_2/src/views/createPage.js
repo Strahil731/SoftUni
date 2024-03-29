@@ -7,7 +7,7 @@ addForm.addEventListener("submit", onCreate);
 let ctx = null;
 export function showCreate(context) {
     ctx = context;
-    ctx.render(addSection);
+    ctx.render(addSection,  "");
 }
 
 async function onCreate(event) {

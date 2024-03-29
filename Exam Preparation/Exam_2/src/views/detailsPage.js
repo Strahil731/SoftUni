@@ -7,7 +7,7 @@ let ctx = null;
 export async function showDetails(context, data) {
   ctx = context;
   detailsSection.innerHTML = "";
-  ctx.render(detailsSection);
+  ctx.render(detailsSection,  "");
 
   const id = data[0];
   const motor = await getSingleMotor(id);
@@ -15,11 +15,13 @@ export async function showDetails(context, data) {
 
   detailsSection.innerHTML = createDetailsTemp(motor, isOwner);
 
-  const deleteBtn = document.getElementById("delete-btn");
-  deleteBtn.addEventListener("click", onDelete);
+  if (isOwner) {
+    const deleteBtn = document.getElementById("delete-btn");
+    deleteBtn.addEventListener("click", onDelete);
 
-  const editBtn = document.getElementById("edit-btn");
-  editBtn.addEventListener("click", onEdit);
+    const editBtn = document.getElementById("edit-btn");
+    editBtn.addEventListener("click", onEdit);
+  }
 }
 
 async function onDelete(event) {

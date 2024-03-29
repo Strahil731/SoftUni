@@ -6,7 +6,7 @@ let ctx = null;
 export async function showEdit(context, data) {
     ctx = context;
     editSection.innerHTML = "";
-    ctx.render(editSection);
+    ctx.render(editSection,  "");
 
     const id = data[0];
     const dataDetails = await getSingleMotor(id);
