@@ -39,7 +39,7 @@ function createEditFunction(data) {
         <input type="number" name="year" id="year" value="${data.year}" />
         <input type="number" name="mileage" id="mileage" value="${data.mileage}" />
         <input type="number" name="contact" id="contact" value="${data.contact}" />
-        <textarea id="about" name="about" value="${data.about}" rows="10" cols="50"></textarea>
+        <textarea id="about" name="about" value="" rows="10" cols="50">${data.about}</textarea>
         <button type="submit">Edit Motorcycle</button>
       </form>
     </div>`;

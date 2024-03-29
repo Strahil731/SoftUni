@@ -1,7 +1,5 @@
 import { getAllMotors } from "../services/dataService.js";
 
-const main = document.querySelector("main");
-const noValible = document.querySelector(".no-valible");
 const dashboardSection = document.getElementById("dashboard");
 const h2 = document.createElement("h2");
 h2.innerHTML = "Available Motorcycles";
@@ -15,8 +13,8 @@ export async function showDashboard(context) {
 
     const motorData = await getAllMotors();
 
-    if (!motorData) {
-        dashboardSection.innerHTML += noValible;
+    if (motorData.length === 0) {
+        dashboardSection.innerHTML = '<h2 class="no-avaliable">No avaliable motorcycles yet.</h2>';
     }
 
     motorData.forEach(motor => {

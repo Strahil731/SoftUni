@@ -25,8 +25,7 @@ const routes = {
     "/details": showDetails,
     "/create": showCreate,
     "/edit": showEdit,
-    "/search": showSearch,
-    "*": () => console.log("404 Page not found!")
+    "/search": showSearch
 }
 
 updateNav();

@@ -7,7 +7,7 @@ let ctx = null;
 export async function showDetails(context, data) {
   ctx = context;
   detailsSection.innerHTML = "";
-  ctx.render(detailsSection,  "");
+  ctx.render(detailsSection, "");
 
   const id = data[0];
   const motor = await getSingleMotor(id);
@@ -28,8 +28,11 @@ async function onDelete(event) {
   event.preventDefault();
 
   const id = event.target.dataset.id;
-  await removeMotor(id);
-  ctx.goTo("/dashboard");
+  const choise = confirm("Are you sure you want delete this bike?");
+  if (choise) {
+    await removeMotor(id);
+    ctx.goTo("/dashboard");
+  }
 }
 
 async function onEdit(event) {

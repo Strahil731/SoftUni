@@ -9,7 +9,7 @@ let ctx = null;
 export function showSearch(context) {
     ctx = context;
     ctx.render(searchSection, "");
-    searchResult.innerHTML = "";
+    searchResult.innerHTML = '<h2 class="no-avaliable">No result.</h2>';
 }
 
 async function onSearch(event) {
@@ -30,7 +30,6 @@ async function onSearch(event) {
 
     if (data.length === 0) {
         searchResult.innerHTML = '<h2 class="no-avaliable">No result.</h2>';
-        return;
     }
 
     for (let el of data) {
