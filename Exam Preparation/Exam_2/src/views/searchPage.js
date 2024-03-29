@@ -38,6 +38,16 @@ async function onSearch(event) {
     }
 
     searchForm.reset();
+
+    const moreInfoBtn = searchResult.querySelectorAll("a.details-btn");
+    moreInfoBtn.forEach(a => a.addEventListener("click", onDetails));
+}
+
+function onDetails(event) {
+    event.preventDefault();
+
+    const id = event.target.dataset.id;
+    ctx.goTo("/details", id);
 }
 
 function createResultTemp(data) {
